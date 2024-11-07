@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .product-card img {
+            width: 100%;
+            height: auto;
+        }
+        .product-card input {
+            margin-top: 10px;
+        }
+        .cart-container {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .cart-item p {
+            margin: 0;
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+        .quantity-controls button {
+            padding: 5px 10px;
+            margin: 0 5px;
+        }
+        .cart-total {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .button.clear-cart {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <h1>TV Products</h1>
+    <div class="product-container">
+        <!-- Product Cards (16 TV Models) -->
+        <div class="product-card" data-product-id="1" data-product-name="Samsung 55" data-product-price="599.99">
+            <img src="TVS.jpg/tv1.jpg" alt="Samsung 55">
+            <h3>Samsung 55"</h3>
+            <p>Price: $599.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+
+        <div class="product-card" data-product-id="2" data-product-name="LG OLED 65" data-product-price="899.99">
+            <img src="TVS.jpg/tv2.jpg" alt="LG OLED 65">
+            <h3>LG OLED 65"</h3>
+            <p>Price: $899.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+
+        <div class="product-card" data-product-id="3" data-product-name="Sony 55 4K" data-product-price="749.99">
+            <img src="TVS.jpg/tv3.jpg" alt="Sony 55 4K">
+            <h3>Sony 55" 4K</h3>
+            <p>Price: $749.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+
+        <div class="product-card" data-product-id="4" data-product-name="Samsung 65 UHD" data-product-price="799.99">
+            <img src="TVS.jpg/tv4.jpg" alt="Samsung 65 UHD">
+            <h3>Samsung 65" UHD</h3>
+            <p>Price: $799.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+
+        <div class="product-card" data-product-id="5" data-product-name="LG 55 LED" data-product-price="599.99">
+            <img src="TVS.jpg/tv5.jpg" alt="LG 55 LED">
+            <h3>LG 55" LED</h3>
+            <p>Price: $599.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+
+        <div class="product-card" data-product-id="6" data-product-name="Sony OLED 65" data-product-price="1099.99">
+            <img src="TVS.jpg/tv6.jpg" alt="Sony OLED 65">
+            <h3>Sony OLED 65"</h3>
+            <p>Price: $1099.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+
+        <div class="product-card" data-product-id="7" data-product-name="TCL 50" data-product-price="449.99">
+            <img src="TVS.jpg/tv7.jpg" alt="TCL 50">
+            <h3>TCL 50"</h3>
+            <p>Price: $449.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+
+        <div class="product-card" data-product-id="8" data-product-name="Vizio 55" data-product-price="479.99">
+            <img src="TVS.jpg/tv8.jpg" alt="Vizio 55">
+            <h3>Vizio 55"</h3>
+            <p>Price: $479.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+
+        <div class="product-card" data-product-id="9" data-product-name="Samsung QLED 75" data-product-price="1599.99">
+            <img src="TVS.jpg/tv9.jpg" alt="Samsung QLED 75">
+            <h3>Samsung QLED 75"</h3>
+            <p>Price: $1599.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+
+        <div class="product-card" data-product-id="10" data-product-name="LG NanoCell 70" data-product-price="649.99">
+            <img src="TVS.jpg/tv10.jpg" alt="LG NanoCell 70">
+            <h3>LG NanoCell 70"</h3>
+            <p>Price: $649.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+
+        <div class="product-card" data-product-id="11" data-product-name="Sony Bravia 75" data-product-price="1299.99">
+            <img src="TVS.jpg/tv11.jpg" alt="Sony Bravia 75">
+            <h3>Sony Bravia 75"</h3>
+            <p>Price: $1299.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+
+        <div class="product-card" data-product-id="12" data-product-name="TCL 55 4K" data-product-price="529.99">
+            <img src="TVS.jpg/tv12.jpg" alt="TCL 55 4K">
+            <h3>TCL 55" 4K</h3>
+            <p>Price: $529.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+
+        <div class="product-card" data-product-id="13" data-product-name="Vizio 60" data-product-price="589.99">
+            <img src="TVS.jpg/tv13.jpg" alt="Vizio 60">
+            <h3>Vizio 60"</h3>
+            <p>Price: $589.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+
+        <div class="product-card" data-product-id="14" data-product-name="Sharp 70" data-product-price="849.99">
+            <img src="TVS.jpg/tv14.jpg" alt="Sharp 70">
+            <h3>Sharp 70"</h3>
+            <p>Price: $849.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+
+        <div class="product-card" data-product-id="15" data-product-name="Panasonic 55 4K" data-product-price="699.99">
+            <img src="TVS.jpg/tv15.jpg" alt="Panasonic 55 4K">
+            <h3>Panasonic 55" 4K</h3>
+            <p>Price: $699.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+
+        <div class="product-card" data-product-id="16" data-product-name="Philips 55" data-product-price="649.99">
+            <img src="TVS.jpg/tv16.jpg" alt="Philips 55">
+            <h3>Philips 55"</h3>
+            <p>Price: $649.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+    </div>
+
+    <!-- Cart Section -->
+    <div class="cart-container">
+        <h2>Your Cart</h2>
+        <div id="cart"></div>
+        <div class="cart-total">
+            <p>Total: $<span id="total-price">0.00</span></p>
+            <a href="#" class="button clear-cart" id="clear-cart">Clear Cart</a>
+            <a href="#" class="button" id="place-order">Place Order</a>
+        </div>
+    </div>
+
+    <script>
+        const cart = {};
+        const totalPriceElement = document.getElementById('total-price');
+        const cartContainer = document.getElementById('cart');
+        const clearCartButton = document.getElementById('clear-cart');
+        const placeOrderButton = document.getElementById('place-order');
+
+        // Handle adding product to cart
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const productCard = event.target.closest('.product-card');
+                const productId = productCard.getAttribute('data-product-id');
+                const productName = productCard.getAttribute('data-product-name');
+                const productPrice = parseFloat(productCard.getAttribute('data-product-price'));
+                const quantity = parseInt(productCard.querySelector('.quantity').value);
+
+                if (cart[productId]) {
+                    cart[productId].quantity += quantity;
+                } else {
+                    cart[productId] = {
+                        name: productName,
+                        price: productPrice,
+                        quantity: quantity
+                    };
+                }
+                updateCart();
+            });
+        });
+
+        // Update cart display and total price
+        function updateCart() {
+            cartContainer.innerHTML = '';
+            let totalPrice = 0;
+            for (const productId in cart) {
+                const item = cart[productId];
+                totalPrice += item.price * item.quantity;
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <p>${item.name}</p>
+                    <div class="quantity-controls">
+                        <button class="decrease-quantity">-</button>
+                        <p>${item.quantity}</p>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <p>$${(item.price * item.quantity).toFixed(2)}</p>
+                `;
+                cartItem.querySelector('.decrease-quantity').addEventListener('click', () => {
+                    if (item.quantity > 1) {
+                        item.quantity--;
+                        updateCart();
+                    }
+                });
+                cartItem.querySelector('.increase-quantity').addEventListener('click', () => {
+                    item.quantity++;
+                    updateCart();
+                });
+                cartContainer.appendChild(cartItem);
+            }
+            totalPriceElement.innerText = totalPrice.toFixed(2);
+        }
+
+        // Handle clear cart
+        clearCartButton.addEventListener('click', () => {
+            for (const productId in cart) {
+                delete cart[productId];
+            }
+            updateCart();
+        });
+
+        // Handle placing order
+        placeOrderButton.addEventListener('click', () => {
+            if (Object.keys(cart).length > 0) {
+                alert('Your order has been placed!');
+                for (const productId in cart) {
+                    delete cart[productId];
+                }
+                updateCart();
+            } else {
+                alert('Your cart is empty!');
+            }
+        });
+        // Navigate to payment.html when "Place Order" is clicked
+placeOrderButton.addEventListener('click', () => {
+    window.location.href = 'payment.html';
+});
+    </script>
+</body>
+</html>

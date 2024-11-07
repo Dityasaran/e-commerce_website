@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fan Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .product-card img {
+            width: 100%;
+            height: auto;
+        }
+        .product-card input {
+            margin-top: 10px;
+        }
+        .cart-container {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .cart-item p {
+            margin: 0;
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+        .quantity-controls button {
+            padding: 5px 10px;
+            margin: 0 5px;
+        }
+        .cart-total {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .button.clear-cart {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <h1>AC Products</h1>
+    <div class="product-container">
+        <!-- Product Cards (16 Fan Models) -->
+        <div class="product-card" data-product-id="1" data-product-name="AC Model 1" data-product-price="399.99">
+            <img src="ACs.jpg/ac1.jpg" alt="AC Model 1">
+            <h3>AC Model 1</h3>
+            <p>Price: $399.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="2" data-product-name="AC Model 2" data-product-price="499.99">
+            <img src="ACs.jpg/ac2.jpg" alt="AC Model 2">
+            <h3>AC Model 2</h3>
+            <p>Price: $499.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="3" data-product-name="AC Model 3" data-product-price="399.99">
+            <img src="ACs.jpg/ac3.jpg" alt="AC Model 3">
+            <h3>AC Model 3</h3>
+            <p>Price: $399.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="4" data-product-name="AC Model 4" data-product-price="499.99">
+            <img src="ACs.jpg/ac4.jpg" alt="AC Model 4">
+            <h3>AC Model 4</h3>
+            <p>Price: $499.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="5" data-product-name="AC Model 5" data-product-price="399.99">
+            <img src="ACs.jpg/ac5.jpg" alt="AC Model 5">
+            <h3>AC Model 5</h3>
+            <p>Price: $399.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="6" data-product-name="AC Model 6" data-product-price="499.99">
+            <img src="ACs.jpg/ac6.jpg" alt="AC Model 6">
+            <h3>AC Model 6</h3>
+            <p>Price: $499.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="7" data-product-name="AC Model 7" data-product-price="399.99">
+            <img src="ACs.jpg/ac7.jpg" alt="AC Model 7">
+            <h3>AC Model 7</h3>
+            <p>Price: $399.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="8" data-product-name="AC Model 8" data-product-price="499.99">
+            <img src="ACs.jpg/ac8.jpg" alt="AC Model 8">
+            <h3>AC Model 8</h3>
+            <p>Price: $499.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="9" data-product-name="AC Model 9" data-product-price="399.99">
+            <img src="ACs.jpg/ac9.jpg" alt="AC Model 9">
+            <h3>AC Model 9</h3>
+            <p>Price: $399.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="10" data-product-name="AC Model 10" data-product-price="499.99">
+            <img src="ACs.jpg/ac10.jpg" alt="AC Model 10">
+            <h3>AC Model 10</h3>
+            <p>Price: $499.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="11" data-product-name="AC Model 11" data-product-price="399.99">
+            <img src="ACs.jpg/ac11.jpg" alt="AC Model 11">
+            <h3>AC Model 11</h3>
+            <p>Price: $399.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="12" data-product-name="AC Model 12" data-product-price="499.99">
+            <img src="ACs.jpg/ac12.jpg" alt="AC Model 12">
+            <h3>AC Model 12</h3>
+            <p>Price: $499.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="13" data-product-name="AC Model 13" data-product-price="399.99">
+            <img src="ACs.jpg/ac13.jpg" alt="AC Model 13">
+            <h3>AC Model 13</h3>
+            <p>Price: $399.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="14" data-product-name="AC Model 14" data-product-price="499.99">
+            <img src="ACs.jpg/ac14.jpg" alt="AC Model 14">
+            <h3>AC Model 14</h3>
+            <p>Price: $499.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="15" data-product-name="AC Model 15" data-product-price="399.99">
+            <img src="ACs.jpg/ac15.jpg" alt="AC Model 15">
+            <h3>AC Model 15</h3>
+            <p>Price: $399.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="16" data-product-name="AC Model 16" data-product-price="499.99">
+            <img src="ACs.jpg/ac16.jpg" alt="AC Model 16">
+            <h3>AC Model 16</h3>
+            <p>Price: $499.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <!-- Additional products omitted for brevity; follow the same structure for remaining fans -->
+
+    </div>
+
+    <!-- Cart Section -->
+    <div class="cart-container">
+        <h2>Your Cart</h2>
+        <div id="cart"></div>
+        <div class="cart-total">
+            <p>Total: $<span id="total-price">0.00</span></p>
+            <a href="#" class="button clear-cart" id="clear-cart">Clear Cart</a>
+            <a href="#" class="button" id="place-order">Place Order</a>
+        </div>
+    </div>
+
+    <script>
+        const cart = {};
+        const totalPriceElement = document.getElementById('total-price');
+        const cartContainer = document.getElementById('cart');
+        const clearCartButton = document.getElementById('clear-cart');
+        const placeOrderButton = document.getElementById('place-order');
+
+        // Handle adding product to cart
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const productCard = event.target.closest('.product-card');
+                const productId = productCard.getAttribute('data-product-id');
+                const productName = productCard.getAttribute('data-product-name');
+                const productPrice = parseFloat(productCard.getAttribute('data-product-price'));
+                const quantity = parseInt(productCard.querySelector('.quantity').value);
+
+                if (cart[productId]) {
+                    cart[productId].quantity += quantity;
+                } else {
+                    cart[productId] = {
+                        name: productName,
+                        price: productPrice,
+                        quantity: quantity
+                    };
+                }
+                updateCart();
+            });
+        });
+
+        // Update cart display and total price
+        function updateCart() {
+            cartContainer.innerHTML = '';
+            let totalPrice = 0;
+            for (const productId in cart) {
+                const item = cart[productId];
+                totalPrice += item.price * item.quantity;
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <p>${item.name}</p>
+                    <div class="quantity-controls">
+                        <button class="decrease-quantity">-</button>
+                        <p>${item.quantity}</p>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <p>$${(item.price * item.quantity).toFixed(2)}</p>
+                `;
+                cartItem.querySelector('.decrease-quantity').addEventListener('click', () => {
+                    if (item.quantity > 1) {
+                        item.quantity--;
+                        updateCart();
+                    }
+                });
+                cartItem.querySelector('.increase-quantity').addEventListener('click', () => {
+                    item.quantity++;
+                    updateCart();
+                });
+                cartContainer.appendChild(cartItem);
+            }
+            totalPriceElement.innerText = totalPrice.toFixed(2);
+        }
+
+        // Handle clear cart
+        clearCartButton.addEventListener('click', () => {
+            for (const productId in cart) {
+                delete cart[productId];
+            }
+            updateCart();
+        });
+
+        // Handle placing order
+        placeOrderButton.addEventListener('click', () => {
+            if (Object.keys(cart).length > 0) {
+                alert('Your order has been placed!');
+                for (const productId in cart) {
+                    delete cart[productId];
+                }
+                updateCart();
+            } else {
+                alert('Your cart is empty!');
+            }
+        });
+        // Navigate to payment.html when "Place Order" is clicked
+        placeOrderButton.addEventListener('click', () => {
+            window.location.href = 'payment.html';
+        });
+    </script>
+</body>
+</html>

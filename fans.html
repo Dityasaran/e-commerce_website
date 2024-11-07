@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fan Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .product-card img {
+            width: 100%;
+            height: auto;
+        }
+        .product-card input {
+            margin-top: 10px;
+        }
+        .cart-container {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .cart-item p {
+            margin: 0;
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+        .quantity-controls button {
+            padding: 5px 10px;
+            margin: 0 5px;
+        }
+        .cart-total {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .button.clear-cart {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fan Products</h1>
+    <div class="product-container">
+        <!-- Product Cards (16 Fan Models) -->
+        <div class="product-card" data-product-id="1" data-product-name="Ceiling Fan 52" data-product-price="59.99">
+            <img src="Fans.jpg/fan1.jpg" alt="Ceiling Fan 52">
+            <h3>Ceiling Fan 52"</h3>
+            <p>Price: $59.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+
+        <div class="product-card" data-product-id="2" data-product-name="Table Fan 12" data-product-price="29.99">
+            <img src="Fans.jpg/fan2.jpg" alt="Table Fan 12">
+            <h3>Table Fan 12"</h3>
+            <p>Price: $29.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+
+        <div class="product-card" data-product-id="3" data-product-name="Wall Fan 16" data-product-price="39.99">
+            <img src="Fans.jpg/fan3.jpg" alt="Wall Fan 16">
+            <h3>Wall Fan 16"</h3>
+            <p>Price: $39.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="4" data-product-name="Dyson Cool AM07" data-product-price="299.99">
+            <img src="FANS.jpg/fan1.jpg" alt="Dyson Cool AM07">
+            <h3>Dyson Cool AM07</h3>
+            <p>Price: $299.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="5" data-product-name="Honeywell QuietSet" data-product-price="79.99">
+            <img src="FANS.jpg/fan2.jpg" alt="Honeywell QuietSet">
+            <h3>Honeywell QuietSet</h3>
+            <p>Price: $79.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="6" data-product-name="Vornado 660 Large" data-product-price="99.99">
+            <img src="FANS.jpg/fan3.jpg" alt="Vornado 660 Large">
+            <h3>Vornado 660 Large</h3>
+            <p>Price: $99.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="7" data-product-name="Lasko T42950 Tower Fan" data-product-price="69.99">
+            <img src="FANS.jpg/fan4.jpg" alt="Lasko T42950 Tower Fan">
+            <h3>Lasko T42950 Tower Fan</h3>
+            <p>Price: $69.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="8" data-product-name="Rowenta Turbo Silence" data-product-price="89.99">
+            <img src="FANS.jpg/fan5.jpg" alt="Rowenta Turbo Silence">
+            <h3>Rowenta Turbo Silence</h3>
+            <p>Price: $89.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        <div class="product-card" data-product-id="22" data-product-name="Bajaj Midea BP-01" data-product-price="49.99">
+            <img src="FANS.jpg/fan6.jpg" alt="Bajaj Midea BP-01">
+            <h3>Bajaj Midea BP-01</h3>
+            <p>Price: $49.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="23" data-product-name="Usha Maxx Air" data-product-price="39.99">
+            <img src="FANS.jpg/fan7.jpg" alt="Usha Maxx Air">
+            <h3>Usha Maxx Air</h3>
+            <p>Price: $39.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="24" data-product-name="Crompton High Flo" data-product-price="34.99">
+            <img src="FANS.jpg/fan8.jpg" alt="Crompton High Flo">
+            <h3>Crompton High Flo</h3>
+            <p>Price: $34.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="25" data-product-name="Orient Electric Apex-FX" data-product-price="45.99">
+            <img src="FANS.jpg/fan9.jpg" alt="Orient Electric Apex-FX">
+            <h3>Orient Electric Apex-FX</h3>
+            <p>Price: $45.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="26" data-product-name="Havells Nicola" data-product-price="59.99">
+            <img src="FANS.jpg/fan10.jpg" alt="Havells Nicola">
+            <h3>Havells Nicola</h3>
+            <p>Price: $59.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="27" data-product-name="Lasko Wind Curve" data-product-price="69.99">
+            <img src="FANS.jpg/fan11.jpg" alt="Lasko Wind Curve">
+            <h3>Lasko Wind Curve</h3>
+            <p>Price: $69.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="28" data-product-name="Honeywell TurboForce" data-product-price="29.99">
+            <img src="FANS.jpg/fan12.jpg" alt="Honeywell TurboForce">
+            <h3>Honeywell TurboForce</h3>
+            <p>Price: $29.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <div class="product-card" data-product-id="29" data-product-name="iBELL Deluxe Tower Fan" data-product-price="55.99">
+            <img src="FANS.jpg/fan13.jpg" alt="iBELL Deluxe Tower Fan">
+            <h3>iBELL Deluxe Tower Fan</h3>
+            <p>Price: $55.99</p>
+            <input type="number" class="quantity" value="1" min="1">
+            <a href="#" class="button add-to-cart">Add to Cart</a>
+        </div>
+        
+        <!-- Additional products omitted for brevity; follow the same structure for remaining fans -->
+
+    </div>
+
+    <!-- Cart Section -->
+    <div class="cart-container">
+        <h2>Your Cart</h2>
+        <div id="cart"></div>
+        <div class="cart-total">
+            <p>Total: $<span id="total-price">0.00</span></p>
+            <a href="#" class="button clear-cart" id="clear-cart">Clear Cart</a>
+            <a href="#" class="button" id="place-order">Place Order</a>
+        </div>
+    </div>
+
+    <script>
+        const cart = {};
+        const totalPriceElement = document.getElementById('total-price');
+        const cartContainer = document.getElementById('cart');
+        const clearCartButton = document.getElementById('clear-cart');
+        const placeOrderButton = document.getElementById('place-order');
+
+        // Handle adding product to cart
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const productCard = event.target.closest('.product-card');
+                const productId = productCard.getAttribute('data-product-id');
+                const productName = productCard.getAttribute('data-product-name');
+                const productPrice = parseFloat(productCard.getAttribute('data-product-price'));
+                const quantity = parseInt(productCard.querySelector('.quantity').value);
+
+                if (cart[productId]) {
+                    cart[productId].quantity += quantity;
+                } else {
+                    cart[productId] = {
+                        name: productName,
+                        price: productPrice,
+                        quantity: quantity
+                    };
+                }
+                updateCart();
+            });
+        });
+
+        // Update cart display and total price
+        function updateCart() {
+            cartContainer.innerHTML = '';
+            let totalPrice = 0;
+            for (const productId in cart) {
+                const item = cart[productId];
+                totalPrice += item.price * item.quantity;
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <p>${item.name}</p>
+                    <div class="quantity-controls">
+                        <button class="decrease-quantity">-</button>
+                        <p>${item.quantity}</p>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <p>$${(item.price * item.quantity).toFixed(2)}</p>
+                `;
+                cartItem.querySelector('.decrease-quantity').addEventListener('click', () => {
+                    if (item.quantity > 1) {
+                        item.quantity--;
+                        updateCart();
+                    }
+                });
+                cartItem.querySelector('.increase-quantity').addEventListener('click', () => {
+                    item.quantity++;
+                    updateCart();
+                });
+                cartContainer.appendChild(cartItem);
+            }
+            totalPriceElement.innerText = totalPrice.toFixed(2);
+        }
+
+        // Handle clear cart
+        clearCartButton.addEventListener('click', () => {
+            for (const productId in cart) {
+                delete cart[productId];
+            }
+            updateCart();
+        });
+
+        // Handle placing order
+        placeOrderButton.addEventListener('click', () => {
+            if (Object.keys(cart).length > 0) {
+                alert('Your order has been placed!');
+                for (const productId in cart) {
+                    delete cart[productId];
+                }
+                updateCart();
+            } else {
+                alert('Your cart is empty!');
+            }
+        });
+        // Navigate to payment.html when "Place Order" is clicked
+        placeOrderButton.addEventListener('click', () => {
+            window.location.href = 'payment.html';
+        });
+    </script>
+</body>
+</html>
